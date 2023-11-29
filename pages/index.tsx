@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import Forms from '../sections/forms/forms.section';
+import React from 'react';
+import { Header } from '../components/header';
+import { Footer } from '../components/footer';
+import { Content } from '../components/content';
 
-export function Index() {
+export default function Index() {
   return (
     <>
-      <Forms />
+      <Header />
+      <Content></Content>
+      <Footer></Footer>
     </>
   );
 }
-
-export default Index;

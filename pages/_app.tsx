@@ -7,7 +7,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Valorile tale în vitață</title>
+        <title>Terasele Hagimus</title>
       </Head>
 
       <main>
