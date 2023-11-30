@@ -59,7 +59,7 @@ const vinuri = [
   {
     name: 'Portofoliu de vinuri',
     description: 'Descopera gama noastra de vinuri ',
-    href: '#',
+    href: '/winoteka',
     icon: PiWineFill,
   },
 
@@ -192,16 +192,18 @@ export function Header() {
                           aria-hidden="true"
                         />
                       </div>
-                      <div className="flex-auto">
-                        <a
-                          href={item.href}
-                          className="block font-semibold text-gray-900"
-                        >
-                          {item.name}
-                          <span className="absolute inset-0" />
-                        </a>
-                        <p className="mt-1 text-gray-600">{item.description}</p>
-                      </div>
+                      <Link href={item.href}>
+                        <div className="flex-auto">
+                          <a className="block font-semibold text-gray-900">
+                            {item.name}
+                            <span className="absolute inset-0" />
+                          </a>
+
+                          <p className="mt-1 text-gray-600">
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
                     </div>
                   ))}
                 </div>
