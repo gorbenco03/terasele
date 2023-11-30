@@ -10,6 +10,7 @@ import { RiHistoryLine } from 'react-icons/ri';
 import { CiCalendarDate } from 'react-icons/ci';
 import { MdOutlineEmojiEvents } from 'react-icons/md';
 import { IoMdPhotos } from 'react-icons/io';
+import Link from 'next/link';
 
 const about = [
   {
@@ -27,7 +28,8 @@ const about = [
   {
     name: 'Echipa',
     description: 'Descoperă cine stă în spatele succesului nostru',
-    href: '#',
+    href: '/team',
+
     icon: RiTeamFill,
   },
 ];
@@ -91,14 +93,14 @@ export function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img
               className="h-8 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
