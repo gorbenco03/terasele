@@ -50,21 +50,73 @@ const products = [
       'Vin alb sec. Aromă: cu accente de citrice și completată de nuanţe florale ',
     options: 'Colectia 2022',
     imageSrc:
-      'https://winetime.md/images/product/2023/11/Sauvignon-Blanc-2021-%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B8%CC%86.webp',
-    imageAlt: 'Merlot',
-    outerHeight: 200,
+      'https://crama.md/wp-content/uploads/2023/05/cramamd_terasele-hagimus-sauvignon-blanc.png',
+    imageAlt: 'Sauvignon Blanc',
+
+    year: 2023,
   },
   {
     id: 2,
-    name: 'Merlot',
+    name: 'Merlot Rose',
     href: '#',
     price: '',
     description:
       'Look like a visionary CEO and wear the same black t-shirt every day.',
     options: 'Colectia 2023',
     imageSrc:
-      'https://winetime.md/images/product/2023/11/Sauvignon-Blanc-2021-%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B8%CC%86.webp',
+      'https://crama.md/wp-content/uploads/2023/06/cramamd_terasele-hagimus-merlot-rose.png',
     imageAlt: 'Front of plain black t-shirt.',
+    year: 2021,
+  },
+  {
+    id: 3,
+    name: 'Merlot Rosu',
+    href: '#',
+    price: '',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Colectia 2023',
+    imageSrc:
+      'https://crama.md/wp-content/uploads/2023/06/cramamd_terasele-hagimus-merlot-rosu.png',
+    imageAlt: 'Front of plain black t-shirt.',
+    year: 2019,
+  },
+  {
+    id: 4,
+    name: 'Cuvee Rouge',
+    href: '#',
+    year: 2020,
+    price: '',
+    description: 'Vinaria Gogu',
+    options: 'Colectia 2023',
+    imageSrc:
+      'https://crama.md/wp-content/uploads/2023/04/cramamd_gogu-winery-cuvee-rouge-315x581.png',
+    imageAlt: 'Front of plain black t-shirt.',
+  },
+  {
+    id: 5,
+    name: 'Cuvee Rouge Royal',
+    href: '#',
+    price: '',
+    year: 2022,
+    description: 'Chateau Cristi ',
+    options: 'Colectia 2023',
+    imageSrc:
+      'https://crama.md/wp-content/uploads/2023/05/cramamd_chateau-cristi-cuvee-rouge-royal-315x581.png',
+    imageAlt: 'Front of plain black t-shirt.',
+  },
+  {
+    id: 6,
+    name: 'Merlot Rosu',
+    href: '#',
+    price: '',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Colectia 2023',
+    imageSrc:
+      'https://crama.md/wp-content/uploads/2023/05/cramamd_vinum-estate-rara-neagra-2021.png',
+    imageAlt: 'Front of plain black t-shirt.',
+    year: 2020,
   },
   // More products...
 ];
@@ -264,7 +316,7 @@ export function CategoryComponent() {
                 Products
               </h2>
 
-              <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2  sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
+              <div className="grid grid-cols-1  gap-y-4 sm:grid-cols-2  sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
                 {products.map((product) => (
                   <div
                     key={product.id}
@@ -274,10 +326,10 @@ export function CategoryComponent() {
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="h-full w-full object-cover object-center sm:h-full sm:w-full"
+                        className="h-full w-full object-scale-down"
                       />
                     </div>
-                    <div className="flex flex-1 flex-col space-y-2 p-4">
+                    <div className="flex flex-1 flex-col  space-y-2 p-4">
                       <h3 className="text-sm font-medium text-gray-900">
                         <a href={product.href}>
                           <span
