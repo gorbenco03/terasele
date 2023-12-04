@@ -7,7 +7,7 @@ import Image from 'next/image';
 const filters = [
   {
     id: 'color',
-    name: 'Tip',
+    name: 'Culoare',
     options: [
       { value: 'white', label: 'Alb' },
       { value: 'red', label: 'Rosu' },
@@ -18,9 +18,11 @@ const filters = [
     id: 'category',
     name: 'Soi de poamă',
     options: [
-      { value: 'new-arrivals', label: 'Cabernet' },
-      { value: 'tees', label: 'Merlot' },
-      { value: 'crewnecks', label: 'Sauvignon' },
+      { value: 'Cabernet', label: 'Cabernet' },
+      { value: 'Merlot', label: 'Merlot' },
+      { value: 'Sauvignon', label: 'Sauvignon' },
+      { value: 'Rară Neagră', label: 'Rară Neagră' },
+      { value: 'Chardonay', label: 'Chardonay' },
     ],
   },
   {
@@ -45,7 +47,10 @@ const products = [
       'Vin alb sec. Aromă: cu accente de citrice și completată de nuanţe florale ',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/05/cramamd_terasele-hagimus-sauvignon-blanc.png',
+
     imageAlt: 'Sauvignon Blanc',
+    category: 'Sauvignon',
+    color: 'white',
 
     year: 2023,
   },
@@ -60,6 +65,8 @@ const products = [
       'https://crama.md/wp-content/uploads/2023/06/cramamd_terasele-hagimus-merlot-rose.png',
     imageAlt: 'Front of plain black t-shirt.',
     year: 2021,
+    color: 'rose',
+    category: 'Merlot',
   },
   {
     id: 3,
@@ -72,6 +79,8 @@ const products = [
       'https://crama.md/wp-content/uploads/2023/06/cramamd_terasele-hagimus-merlot-rosu.png',
     imageAlt: 'Front of plain black t-shirt.',
     year: 2019,
+    category: 'Merlot',
+    color: 'red',
   },
   {
     id: 4,
@@ -83,6 +92,8 @@ const products = [
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/04/cramamd_gogu-winery-cuvee-rouge-315x581.png',
     imageAlt: 'Front of plain black t-shirt.',
+    category: 'Cuvee',
+    color: 'red',
   },
   {
     id: 5,
@@ -94,6 +105,8 @@ const products = [
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/05/cramamd_chateau-cristi-cuvee-rouge-royal-315x581.png',
     imageAlt: 'Cuve',
+    category: 'Cuvee',
+    color: 'red',
   },
   {
     id: 6,
@@ -106,6 +119,8 @@ const products = [
       'https://crama.md/wp-content/uploads/2023/05/cramamd_vinum-estate-rara-neagra-2021.png',
     imageAlt: 'Rose Sec.',
     year: 2020,
+    color: 'rose',
+    category: 'Rară Neagră',
   },
   {
     id: 7,
@@ -118,6 +133,8 @@ const products = [
       'https://crama.md/wp-content/uploads/2023/05/cramamd_vinum-estate-rara-neagra-2021.png',
     imageAlt: 'Rosu Dulce',
     year: 2022,
+    color: 'red',
+    category: 'Rară Neagră',
   },
   {
     id: 8,
@@ -129,6 +146,8 @@ const products = [
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/04/cramamd_gogu-winery-cuvee-rouge-315x581.png',
     imageAlt: 'Chardonay.',
+    color: 'white',
+    category: 'Chardonay',
   },
 ];
 
@@ -139,6 +158,8 @@ function classNames({ classes = [] }: { classes?: any[] } = {}) {
 export function CategoryComponent() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [selectedYears, setSelectedYears] = useState<number[]>([]);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
   const handleYearChange = (e: { target: { value: string; checked: any } }) => {
     const year = parseInt(e.target.value, 10);
@@ -153,9 +174,39 @@ export function CategoryComponent() {
     });
   };
 
+  const handleColorChange = (e: { target: { value: any; checked: any } }) => {
+    const color = e.target.value;
+    setSelectedColors((prevColors) => {
+      if (e.target.checked) {
+        return [...prevColors, color];
+      } else {
+        return prevColors.filter((c) => c !== color);
+      }
+    });
+  };
+
+  const handleCategoryChange = (e: {
+    target: { value: any; checked: any };
+  }) => {
+    const category = e.target.value;
+    setSelectedCategory((prevCategory) => {
+      if (e.target.checked) {
+        return [...prevCategory, category];
+      } else {
+        return prevCategory.filter((c) => c !== category);
+      }
+    });
+  };
+
   const filteredProducts = products.filter((product) => {
-    // Verifică dacă anul produsului se află în array-ul selectedYears
-    return selectedYears.length === 0 || selectedYears.includes(product.year);
+    const yearMatches =
+      selectedYears.length === 0 || selectedYears.includes(product.year);
+    const colorMatches =
+      selectedColors.length === 0 || selectedColors.includes(product.color); // presupunând că fiecare produs are o proprietate `color`r
+    const categoryMatches =
+      selectedCategory.length === 0 ||
+      selectedCategory.includes(product.category);
+    return yearMatches && colorMatches && categoryMatches;
   });
 
   return (
@@ -246,7 +297,13 @@ export function CategoryComponent() {
                                       name={`${section.id}[]`}
                                       value={option.value}
                                       type="checkbox"
-                                      onChange={handleYearChange}
+                                      onChange={
+                                        section.id === 'color'
+                                          ? handleColorChange
+                                          : section.id === 'year'
+                                          ? handleYearChange
+                                          : handleCategoryChange
+                                      }
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
 
@@ -321,7 +378,13 @@ export function CategoryComponent() {
                                 name={`${section.id}[]`}
                                 value={option.value}
                                 type="checkbox"
-                                onChange={handleYearChange}
+                                onChange={
+                                  section.id === 'color'
+                                    ? handleColorChange
+                                    : section.id === 'year'
+                                    ? handleYearChange
+                                    : handleCategoryChange
+                                }
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
 
@@ -359,6 +422,8 @@ export function CategoryComponent() {
                       <Image
                         src={product.imageSrc}
                         alt={product.imageAlt}
+                        width={315}
+                        height={581}
                         className="h-full w-full object-scale-down"
                       />
                     </div>

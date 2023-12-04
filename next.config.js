@@ -9,6 +9,7 @@ module.exports = {
       'pegas.md',
       'facebook.com',
       'starcard.md',
+      'crama.md',
     ],
   },
 };
