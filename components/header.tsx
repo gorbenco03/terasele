@@ -96,7 +96,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image className="h-24 w-auto" src={myImage.src} alt="" />
+            <Image className="h-24 w-auto" src="" alt="" />
           </Link>
         </div>
         <div className="flex lg:hidden">
