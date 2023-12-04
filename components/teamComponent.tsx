@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const people = [
   {
     name: 'Gherghelejiu Serghei',
@@ -51,7 +53,7 @@ export function TeamComponent() {
         >
           {people.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <img
+              <Image
                 className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
                 src={person.imageUrl}
                 alt=""

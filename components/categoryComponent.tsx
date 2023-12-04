@@ -2,14 +2,8 @@ import { Fragment, useState } from 'react';
 import { Dialog, Disclosure, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, PlusIcon } from '@heroicons/react/20/solid';
+import Image from 'next/image';
 
-const navigation = {
-  pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
-  ],
-};
-const breadcrumbs = [{ id: 1, name: 'Men', href: '#' }];
 const filters = [
   {
     id: 'color',
@@ -30,13 +24,14 @@ const filters = [
     ],
   },
   {
-    id: 'sizes',
+    id: 'year',
     name: 'Anul',
     options: [
-      { value: 'xs', label: '2023' },
-      { value: 's', label: '2022' },
-      { value: 'm', label: '2021' },
-      { value: 'l', label: '2020' },
+      { value: '2023', label: '2023' },
+      { value: '2022', label: '2022' },
+      { value: '2021', label: '2021' },
+      { value: '2020', label: '2020' },
+      { value: '2019', label: '2019' },
     ],
   },
 ];
@@ -48,7 +43,6 @@ const products = [
     price: '',
     description:
       'Vin alb sec. Aromă: cu accente de citrice și completată de nuanţe florale ',
-    options: 'Colectia 2022',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/05/cramamd_terasele-hagimus-sauvignon-blanc.png',
     imageAlt: 'Sauvignon Blanc',
@@ -62,7 +56,6 @@ const products = [
     price: '',
     description:
       'Look like a visionary CEO and wear the same black t-shirt every day.',
-    options: 'Colectia 2023',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/06/cramamd_terasele-hagimus-merlot-rose.png',
     imageAlt: 'Front of plain black t-shirt.',
@@ -75,7 +68,6 @@ const products = [
     price: '',
     description:
       'Look like a visionary CEO and wear the same black t-shirt every day.',
-    options: 'Colectia 2023',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/06/cramamd_terasele-hagimus-merlot-rosu.png',
     imageAlt: 'Front of plain black t-shirt.',
@@ -88,7 +80,6 @@ const products = [
     year: 2020,
     price: '',
     description: 'Vinaria Gogu',
-    options: 'Colectia 2023',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/04/cramamd_gogu-winery-cuvee-rouge-315x581.png',
     imageAlt: 'Front of plain black t-shirt.',
@@ -100,25 +91,45 @@ const products = [
     price: '',
     year: 2022,
     description: 'Chateau Cristi ',
-    options: 'Colectia 2023',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/05/cramamd_chateau-cristi-cuvee-rouge-royal-315x581.png',
-    imageAlt: 'Front of plain black t-shirt.',
+    imageAlt: 'Cuve',
   },
   {
     id: 6,
-    name: 'Merlot Rosu',
+    name: 'Vin Rose Sec',
     href: '#',
     price: '',
     description:
       'Look like a visionary CEO and wear the same black t-shirt every day.',
-    options: 'Colectia 2023',
     imageSrc:
       'https://crama.md/wp-content/uploads/2023/05/cramamd_vinum-estate-rara-neagra-2021.png',
-    imageAlt: 'Front of plain black t-shirt.',
+    imageAlt: 'Rose Sec.',
     year: 2020,
   },
-  // More products...
+  {
+    id: 7,
+    name: 'Vin Roșu Dulce',
+    href: '#',
+    price: '',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    imageSrc:
+      'https://crama.md/wp-content/uploads/2023/05/cramamd_vinum-estate-rara-neagra-2021.png',
+    imageAlt: 'Rosu Dulce',
+    year: 2022,
+  },
+  {
+    id: 8,
+    name: 'Chardonay',
+    href: '#',
+    year: 2023,
+    price: '',
+    description: 'Chardonay alb foarte bun',
+    imageSrc:
+      'https://crama.md/wp-content/uploads/2023/04/cramamd_gogu-winery-cuvee-rouge-315x581.png',
+    imageAlt: 'Chardonay.',
+  },
 ];
 
 function classNames({ classes = [] }: { classes?: any[] } = {}) {
@@ -126,8 +137,26 @@ function classNames({ classes = [] }: { classes?: any[] } = {}) {
 }
 
 export function CategoryComponent() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [selectedYears, setSelectedYears] = useState<number[]>([]);
+
+  const handleYearChange = (e: { target: { value: string; checked: any } }) => {
+    const year = parseInt(e.target.value, 10);
+    setSelectedYears((prevYears) => {
+      if (e.target.checked) {
+        // Adaugă anul în array dacă este selectat
+        return [...prevYears, year];
+      } else {
+        // Elimină anul din array dacă este deselectat
+        return prevYears.filter((y) => y !== year);
+      }
+    });
+  };
+
+  const filteredProducts = products.filter((product) => {
+    // Verifică dacă anul produsului se află în array-ul selectedYears
+    return selectedYears.length === 0 || selectedYears.includes(product.year);
+  });
 
   return (
     <div className="bg-white">
@@ -213,12 +242,14 @@ export function CategoryComponent() {
                                     className="flex items-center"
                                   >
                                     <input
-                                      id={`${section.id}-${optionIdx}-mobile`}
+                                      id={`${section.id}-${optionIdx}`}
                                       name={`${section.id}[]`}
-                                      defaultValue={option.value}
+                                      value={option.value}
                                       type="checkbox"
+                                      onChange={handleYearChange}
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
+
                                     <label
                                       htmlFor={`${section.id}-${optionIdx}-mobile`}
                                       className="ml-3 text-sm text-gray-500"
@@ -273,7 +304,7 @@ export function CategoryComponent() {
                   {filters.map((section, sectionIdx) => (
                     <div
                       key={section.name}
-                      className={sectionIdx === 0 ? 'chiril' : 'pt-10'}
+                      className={sectionIdx === 0 ? '' : 'pt-10'}
                     >
                       <fieldset>
                         <legend className="block text-sm font-medium text-gray-900">
@@ -288,10 +319,12 @@ export function CategoryComponent() {
                               <input
                                 id={`${section.id}-${optionIdx}`}
                                 name={`${section.id}[]`}
-                                defaultValue={option.value}
+                                value={option.value}
                                 type="checkbox"
+                                onChange={handleYearChange}
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
+
                               <label
                                 htmlFor={`${section.id}-${optionIdx}`}
                                 className="ml-3 text-sm text-gray-600"
@@ -317,13 +350,13 @@ export function CategoryComponent() {
               </h2>
 
               <div className="grid grid-cols-1  gap-y-4 sm:grid-cols-2  sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                   <div
                     key={product.id}
                     className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                   >
                     <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
-                      <img
+                      <Image
                         src={product.imageSrc}
                         alt={product.imageAlt}
                         className="h-full w-full object-scale-down"
@@ -344,7 +377,7 @@ export function CategoryComponent() {
                       </p>
                       <div className="flex flex-1 flex-col justify-end">
                         <p className="text-sm italic text-gray-500">
-                          {product.options}
+                          Colectia {product.year}
                         </p>
                         <p className="text-base font-medium text-gray-900">
                           {product.price}

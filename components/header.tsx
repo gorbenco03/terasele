@@ -11,18 +11,20 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { MdOutlineEmojiEvents } from 'react-icons/md';
 import { IoMdPhotos } from 'react-icons/io';
 import Link from 'next/link';
+import myImage from '../src/assets/hagimus.png';
+import Image from 'next/image';
 
 const about = [
   {
     name: 'Istoria Vinăriei',
     description: 'Află de unde totul a pornit',
-    href: '#',
+    href: '/404',
     icon: RiHistoryLine,
   },
   {
     name: 'Filosofia noastră',
     description: 'Ideile noastre și ce vrep să facem',
-    href: '#',
+    href: '/404',
     icon: PiBrain,
   },
   {
@@ -37,20 +39,20 @@ const experience = [
   {
     name: 'Vizite și degustări',
     description: 'Hui paimi pe urma ma gandesc',
-    href: '#',
+    href: '/404',
     icon: CiCalendarDate,
   },
 
   {
     name: 'Evenimente',
     description: 'Petrece cu noi',
-    href: '#',
+    href: '/404',
     icon: MdOutlineEmojiEvents,
   },
   {
     name: 'Galeria de poze',
     description: 'Descopera mai multe poze',
-    href: '#',
+    href: '/404',
     icon: IoMdPhotos,
   },
 ];
@@ -94,11 +96,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
+            <Image className="h-24 w-auto" src={myImage.src} alt="" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -276,11 +274,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
+              <Image className="h-14 w-14" src={myImage.src} alt="" />
             </a>
             <button
               type="button"

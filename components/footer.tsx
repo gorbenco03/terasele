@@ -1,4 +1,6 @@
 import { SVGProps } from 'react';
+import myImage from '../src/assets/hagimus.png';
+import Image from 'next/image';
 
 const navigation = {
   solutions: [
@@ -78,11 +80,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <img
-              className="h-7"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt="Company name"
-            />
+            <Image className="h-20" src={myImage.src} alt="Company name" />
             <p className="text-sm leading-6 text-gray-600">
               Terasele Hagimus, alegerea perfectă pentru tine pe rețelele de
               socializare.
