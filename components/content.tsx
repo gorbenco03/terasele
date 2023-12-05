@@ -32,17 +32,10 @@ export function Content() {
                   }}
                 />
               </div>
+
               <figure className="relative isolate">
-                <blockquote className="mt-6 text-xl font-semibold leading-8 text-white">
-                  <p>
-                    Vinăria Terasele Hagimus, situată în pitoreasca regiune a
-                    Moldovei, este un simbol al tradiției și inovației în arta
-                    vinificației. Această vinărie este renumită pentru terasele
-                    sale care se întind pe colinele suave.
-                  </p>
-                </blockquote>
-                <figcaption className="mt-6 text-sm leading-6 text-gray-300">
-                  <strong className="font-semibold text-white">
+                <figcaption className="mt-24  pt-6 text-sm leading-6 text-gray-300">
+                  <strong className="font-semibold  text-white ">
                     Gherghelejiu Serghei,
                   </strong>{' '}
                   Fondatorul Terasele Hagimus

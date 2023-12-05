@@ -67,19 +67,8 @@ const CarouselWithText: React.FC<CarouselWithTextProps> = ({ items }) => {
                 </div>
               </figure>
             ))}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-0 z-10 p-2 text-gray-500 bg-white rounded-full shadow focus:outline-none"
-            >
-              <ChevronLeftIcon className="h-6 w-6" />
-            </button>
+
             {/* Carousel images and indicators go here */}
-            <button
-              onClick={goToNext}
-              className="absolute right-0 z-10 p-2 text-gray-500 bg-white rounded-full shadow focus:outline-none"
-            >
-              <ChevronRightIcon className="h-6 w-6" />
-            </button>
 
             <div className="flex justify-center mt-4">
               {items.map((_, index) => (
