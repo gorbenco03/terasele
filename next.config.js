@@ -10,6 +10,7 @@ module.exports = {
       'facebook.com',
       'starcard.md',
       'crama.md',
+      'images.unsplash.com',
     ],
   },
 };

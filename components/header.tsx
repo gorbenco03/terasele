@@ -75,7 +75,7 @@ const vinuri = [
   {
     name: 'Recomandari de asortare',
     description: 'Descopera combinatia perfecta',
-    href: '#',
+    href: '/assortiment',
     icon: GiMeal,
   },
 ];

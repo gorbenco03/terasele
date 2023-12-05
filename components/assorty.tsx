@@ -7,7 +7,10 @@ import {
 
 interface CarouselItem {
   imageSrc: string;
-  text: string;
+  text1: string;
+  text2: string;
+  text3: string;
+  text4: string;
   caption?: string;
 }
 
@@ -92,8 +95,11 @@ const CarouselWithText: React.FC<CarouselWithTextProps> = ({ items }) => {
             </div>
           </div>
           <div className="mt-8 lg:mt-0">
-            <div className="prose prose-indigo mx-auto text-gray-500 lg:max-w-none lg:col-start-1">
-              <p>{items[activeIndex].text}</p>
+            <div className="prose  mt-6  font-normal leading-7 prose-indigo mx-auto text-black lg:max-w-none text-base lg:col-start-1 ">
+              <p className="indent-8 m-6">{items[activeIndex].text1}</p>
+              <p className="m-6 indent-8">{items[activeIndex].text2}</p>
+              <p className="m-6 indent-8">{items[activeIndex].text3}</p>
+              <p className="m-6 indent-8">{items[activeIndex].text4}</p>
             </div>
           </div>
         </div>

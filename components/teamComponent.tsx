@@ -4,16 +4,14 @@ const people = [
   {
     name: 'Gherghelejiu Serghei',
     role: 'Fondator',
-    imageUrl:
-      'https://scontent-otp1-1.xx.fbcdn.net/v/t1.6435-9/87174365_193957641709317_4190763585443463168_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7a1959&_nc_ohc=2Tw3O1oSxEgAX-UwPWJ&_nc_ht=scontent-otp1-1.xx&oh=00_AfDFqZ7rO1HnT01uaw-kCF7Pn-O4RhydAH5fg2FKSgUdpA&oe=658FF4BC',
+    imageUrl: '',
     bio: 'Quia illum aut in beatae. Possimus dolores aliquid accusantium aut in ut non assumenda. Enim iusto molestias aut deleniti eos aliquid magnam molestiae. At et non possimus ab. Magni labore molestiae nulla qui.',
   },
 
   {
     name: 'Gorbenco Chiril',
     role: 'Tech Staff',
-    imageUrl:
-      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/372840048_3435581343422236_91444894508038446_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=ltjrq_mhdqkAX9yb45b&_nc_ht=scontent-otp1-1.xx&oh=00_AfAOISo8_szU04AhyKyl1-MAsRpL-qKuP997z-c6lhqDQg&oe=656DC21F',
+    imageUrl: '',
     bio: 'Quia illum aut in beatae. Possimus dolores aliquid accusantium aut in ut non assumenda. Enim iusto molestias aut deleniti eos aliquid magnam molestiae. At et non possimus ab. Magni labore molestiae nulla qui.',
   },
 
@@ -57,6 +55,8 @@ export function TeamComponent() {
                 className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
                 src={person.imageUrl}
                 alt=""
+                width={150}
+                height={150}
               />
               <div className="flex-auto">
                 <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">
