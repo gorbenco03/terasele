@@ -11,6 +11,7 @@ module.exports = {
       'starcard.md',
       'crama.md',
       'images.unsplash.com',
+      'scontent-otp1-1.xx.fbcdn.net',
     ],
   },
 };

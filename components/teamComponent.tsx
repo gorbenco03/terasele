@@ -4,7 +4,8 @@ const people = [
   {
     name: 'Gherghelejiu Serghei',
     role: 'Fondator',
-    imageUrl: '',
+    imageUrl:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/379397213_708195678000653_6376341994861156291_n.jpg?stp=cp6_dst-jpg&_nc_cat=110&ccb=1-7&_nc_sid=dd5e9f&_nc_aid=0&_nc_ohc=0YZBYPXqQKUAX_7x3v1&_nc_ht=scontent-otp1-1.xx&oh=00_AfDvWusO1CEPWhDGyqFqvcIcAV3gytEN0tj0gIpZeRc07w&oe=6574E487',
     bio: 'Quia illum aut in beatae. Possimus dolores aliquid accusantium aut in ut non assumenda. Enim iusto molestias aut deleniti eos aliquid magnam molestiae. At et non possimus ab. Magni labore molestiae nulla qui.',
   },
 
