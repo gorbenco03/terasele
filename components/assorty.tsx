@@ -24,17 +24,6 @@ const CarouselWithText: React.FC<CarouselWithTextProps> = ({ items }) => {
   const handleChange = (newIndex: number) => {
     setActiveIndex(newIndex);
   };
-  const goToPrevious = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
   return (
     <div className="overflow-hidden bg-white">
@@ -58,7 +47,7 @@ const CarouselWithText: React.FC<CarouselWithTextProps> = ({ items }) => {
                     <span className="ml-2">{item.caption}</span>
                   </figcaption>
                 )}
-                <div className="aspect-h-7 aspect-w-12 lg:aspect-none">
+                <div className="aspect-h-7 aspect-w-12  shadow-lg shadow-black lg:aspect-none">
                   <img
                     className="rounded-lg object-cover object-center shadow-lg"
                     src={item.imageSrc}
@@ -84,11 +73,19 @@ const CarouselWithText: React.FC<CarouselWithTextProps> = ({ items }) => {
             </div>
           </div>
           <div className="mt-8 lg:mt-0">
-            <div className="prose  mt-6  font-normal leading-7 prose-indigo mx-auto text-black lg:max-w-none text-base lg:col-start-1 ">
-              <p className="indent-8 m-6">{items[activeIndex].text1}</p>
-              <p className="m-6 indent-8">{items[activeIndex].text2}</p>
-              <p className="m-6 indent-8">{items[activeIndex].text3}</p>
-              <p className="m-6 indent-8">{items[activeIndex].text4}</p>
+            <div className="prose font-normal leading-7 prose-indigo mx-auto text-black lg:max-w-none text-base lg:col-start-1 ">
+              <p className="indent-8 p-2 mb-6 shadow shadow-black rounded-lg">
+                {items[activeIndex].text1}
+              </p>
+              <p className="indent-8 p-2 mb-6 shadow shadow-black rounded-lg">
+                {items[activeIndex].text2}
+              </p>
+              <p className="indent-8 p-2 mb-6 shadow shadow-black rounded-lg">
+                {items[activeIndex].text3}
+              </p>
+              <p className="indent-8 p-2 mb-6 shadow shadow-black rounded-lg">
+                {items[activeIndex].text4}
+              </p>
             </div>
           </div>
         </div>

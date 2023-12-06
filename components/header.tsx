@@ -18,15 +18,10 @@ const about = [
   {
     name: 'Istoria Vinăriei',
     description: 'Află de unde totul a pornit',
-    href: '/404',
+    href: '/history',
     icon: RiHistoryLine,
   },
-  {
-    name: 'Filosofia noastră',
-    description: 'Ideile noastre și ce vrep să facem',
-    href: '/404',
-    icon: PiBrain,
-  },
+
   {
     name: 'Echipa',
     description: 'Descoperă cine stă în spatele succesului nostru',
@@ -43,12 +38,12 @@ const experience = [
     icon: CiCalendarDate,
   },
 
-  {
-    name: 'Evenimente',
-    description: 'Petrece cu noi',
-    href: '/404',
-    icon: MdOutlineEmojiEvents,
-  },
+  // {
+  //   name: 'Evenimente',
+  //   description: 'Petrece cu noi',
+  //   href: '/404',
+  //   icon: MdOutlineEmojiEvents,
+  // },
   {
     name: 'Galeria de poze',
     description: 'Descopera mai multe poze',

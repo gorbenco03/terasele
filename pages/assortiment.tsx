@@ -31,7 +31,8 @@ const Merlot2022 = [
   },
 
   {
-    imageSrc: '',
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/353792295_653908486762706_7680420092527994845_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=3635dc&_nc_ohc=PBmC16yRzewAX81QwLs&_nc_ht=scontent-otp1-1.xx&oh=00_AfDYoZLMfKvP4iBlR0TwDpQMliKlMifSCwG4oz5j7xmJiQ&oe=6575BFE2',
     text1: '',
     text2: '',
     text3: '',
@@ -73,6 +74,87 @@ const Chardonay = [
   },
 ];
 
+const merlotRose = [
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/352216769_2174092732759634_8618905335071776334_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=3635dc&_nc_ohc=gUP-nkRrg9MAX86gEz1&_nc_ht=scontent-otp1-1.xx&oh=00_AfBkXf5EuXJMDBibKx4WJdFFy4AglapBetM2sH4FqNLIXQ&oe=65755716',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/352385667_928071678270245_9128792324285425003_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3635dc&_nc_ohc=kS0qfr51dNwAX-X7VC9&_nc_ht=scontent-otp1-1.xx&oh=00_AfCh_iJUVXUqRCop-8gM4otibvZJVVvfBPTz0GJHj8qAdA&oe=6574C2F2',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/352296383_217758891165572_7075752700975825486_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=FgdMwcH_FcwAX9THmfE&_nc_ht=scontent-otp1-1.xx&oh=00_AfBVUMkrpAxStJreXeY2pnnwD7X6yfWJXP3I5jxeL6on6g&oe=6574E9A2',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+];
+
+const Sauvignon = [
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/353441756_651276497025905_6457919240115998568_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=dXWPU0FHHGsAX8l8bto&_nc_ht=scontent-otp1-1.xx&oh=00_AfDG6vt_XJMbniqAa3LbDCUgafzsVO1imnTqkapHHsditA&oe=6575C6FB',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/352778368_651276433692578_1536183706111268243_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=TKAsSq2MpgwAX8_MDkF&_nc_ht=scontent-otp1-1.xx&oh=00_AfCZxjSc_YaJRtkTyUa1wBRiQN6JcVzeyTCJD_3So6BNsw&oe=657480E3',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/352523393_651276423692579_4313216928735254122_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=J1p7nUHU994AX-rN_HV&_nc_ht=scontent-otp1-1.xx&oh=00_AfBmeSPDGVc46sURSDqVuYImBVm9NGcTU5W34KOwTtoSoQ&oe=65764F70',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+];
+
+const blancMerlot = [
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/353855641_653898813430340_2107118235116032807_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=3635dc&_nc_ohc=msNtz4pv8y0AX854DnF&_nc_ht=scontent-otp1-1.xx&oh=00_AfAXQatnmEQ2luU2zuwsbEIN-_D3aHrt5d7NI-0lJdgUVA&oe=65765670',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/354037980_653898853430336_6784676211962370109_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3635dc&_nc_ohc=Xfa4GgfTcT8AX9PQ0Rn&_nc_ht=scontent-otp1-1.xx&oh=00_AfAVIbZND0JJefxfd9fbeqhB0m6t_xBMAXVxncT16pFTbg&oe=657600EE',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+  {
+    imageSrc:
+      'https://scontent-otp1-1.xx.fbcdn.net/v/t39.30808-6/353855931_653898816763673_3278020393110671272_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=3635dc&_nc_ohc=9OaOQJw-GzkAX_i-0HN&_nc_ht=scontent-otp1-1.xx&oh=00_AfBzvDkMCZEOs97fDe40mVGpl3SsJXhveXYiOMqX8KmHsA&oe=6574AB06',
+    text1: '',
+    text2: '',
+    text3: '',
+    text4: '',
+  },
+];
+
 const assortiment = () => {
   return (
     <div>
@@ -80,6 +162,9 @@ const assortiment = () => {
       <NestedCarousel>
         <CarouselWithText items={Merlot2022}></CarouselWithText>
         <CarouselWithText items={Chardonay}></CarouselWithText>
+        <CarouselWithText items={merlotRose}></CarouselWithText>
+        <CarouselWithText items={Sauvignon}></CarouselWithText>
+        <CarouselWithText items={blancMerlot}></CarouselWithText>
       </NestedCarousel>
 
       <Footer></Footer>

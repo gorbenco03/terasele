@@ -1,7 +1,8 @@
 import React, { useState, ReactElement } from 'react';
 import {
-  ArrowDownLeftIcon,
-  ArrowDownRightIcon,
+  CameraIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 } from '@heroicons/react/20/solid';
 
 interface NestedCarouselProps {
@@ -28,10 +29,10 @@ const NestedCarousel: React.FC<NestedCarouselProps> = ({ children }) => {
     <div className="nested-carousel-container relative">
       <button
         onClick={goToPrevious}
-        className="absolute left-0 z-10 p-4 text-gray-500 bg-white rounded-full shadow focus:outline-none"
+        className="absolute left-0 z-10 p-4 ml-14 text-gray-500 bg-white rounded-full shadow focus:outline-none"
         style={{ top: '50%', transform: 'translateY(-50%)' }} // Ajustează această parte dacă e necesar
       >
-        <ArrowDownLeftIcon className="h-6 w-6" />
+        <ChevronLeftIcon className="h-6 w-6" />
       </button>
 
       <div className="carousel-content">
@@ -42,10 +43,10 @@ const NestedCarousel: React.FC<NestedCarouselProps> = ({ children }) => {
 
       <button
         onClick={goToNext}
-        className="absolute right-0 z-10 p-4 text-gray-500 bg-white rounded-full shadow focus:outline-none"
+        className="absolute right-0 z-10 lg:p-4 lg:mr-14 text-gray-500 bg-white rounded-full shadow focus:outline-none"
         style={{ top: '50%', transform: 'translateY(-50%)' }} // Ajustează această parte dacă e necesar
       >
-        <ArrowDownRightIcon className="h-6 w-6" />
+        <ChevronRightIcon className="h-6 w-6" />
       </button>
     </div>
   );
